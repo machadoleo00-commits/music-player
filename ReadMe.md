@@ -8,8 +8,9 @@ Um reprodutor de música simples feito em Python, usando a biblioteca `pygame.mi
 - ⏸️ Pausar e retomar (resume)
 - ⏹️ Parar a reprodução
 - 🔊 Ajustar volume
+- ⏭️ Pular para a próxima música
 - 📂 Detecção automática das músicas dentro da pasta `playlist/`
-- 🔁 Avanço automático para a próxima música quando a atual termina
+- 🔁 Avanço automático para a próxima música quando a atual termina (checagem em segundo plano com threading)
 
 ## Como rodar
 
@@ -31,6 +32,7 @@ python player.py
 - `P` — pausar
 - `R` — retomar
 - `V` — ajustar volume
+- `S` — saltar para a próxima música
 - `D` — desligar (stop)
 
 ## Estrutura do projeto
@@ -47,6 +49,7 @@ music-player/
 
 - Python 3
 - pygame (`pygame.mixer`)
+- threading (checagem automática de fim de música)
 
 ## Próximos passos
 
