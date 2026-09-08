@@ -6,6 +6,7 @@ import time
 indice_atual = 0
 playlist = []
 tocando_algo = False
+pausado = False
 
 for mp3 in os.listdir('playlist'):
     if os.path.isfile('playlist/' + mp3) and mp3.endswith('.mp3'):
@@ -25,14 +26,18 @@ def stop():
     tocando_algo = False
     print(f'Radio desligado')
 def pause():
+    global pausado
     pygame.mixer.music.pause()
     print(f'Radio pausado')
+    pausado = True
 def unpause():
+    global pausado
     pygame.mixer.music.unpause()
     print(f'Radio retomado')
-def volume():
-    volume = float(input (f'escolha um volume de 0 a 10: ')) / 10
-    pygame.mixer.music.set_volume(volume)
+    pausado = False
+def volume(valor):
+    volume_ajustado = float(valor) / 10
+    pygame.mixer.music.set_volume(volume_ajustado)
 
 def proxima_musica():
     global indice_atual
@@ -44,5 +49,6 @@ def verificar_fim_da_musica():
     while True:
         time.sleep(0.5) 
         if pygame.mixer.music.get_busy() == False and tocando_algo:
-            proxima_musica()
+            if not  pausado:
+             proxima_musica()
 
