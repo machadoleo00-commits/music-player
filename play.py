@@ -14,3 +14,6 @@ def pause():
 def unpause():
     pygame.mixer.music.unpause()
     print(f'Radio retomado')
+def volume():
+    volume = float(input (f'escolha um volume de 0 a 10: ')) / 10
+    pygame.mixer.music.set_volume(volume)
