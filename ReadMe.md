@@ -1,6 +1,6 @@
 # 🎵 Music Player
 
-Um reprodutor de música simples feito em Python, usando a biblioteca `pygame.mixer` para tocar arquivos MP3 e `tkinter` para a interface gráfica.
+Um reprodutor de música simples feito em Python, usando a biblioteca `pygame.mixer` para tocar arquivos MP3 e `tkinter` (com `ttk`) para a interface gráfica.
 
 ## Funcionalidades
 
@@ -11,7 +11,9 @@ Um reprodutor de música simples feito em Python, usando a biblioteca `pygame.mi
 - ⏭️ Pular para a próxima música
 - 📂 Detecção automática das músicas dentro da pasta `playlist/`
 - 🔁 Avanço automático para a próxima música quando a atual termina (checagem em segundo plano com threading)
-- 🖥️ Interface gráfica com botões e slider (tkinter)
+- 🖥️ Interface gráfica com widgets modernos (ttk), botões organizados em grade e slider de volume
+- 🎧 Exibição em tempo real do nome da música que está tocando
+- 🛑 Encerramento seguro: fechar a janela para a música e finaliza o programa corretamente
 
 ## Como rodar
 
@@ -35,6 +37,7 @@ python player.py
 - Pular faixa
 - Desligar
 - Slider de volume
+- Nome da música atual exibido na tela
 
 ## Estrutura do projeto
 
@@ -42,7 +45,7 @@ python player.py
 music-player/
 ├── playlist/       # arquivos .mp3
 ├── play.py         # lógica de reprodução (pygame.mixer)
-├── janela.py       # interface gráfica (tkinter)
+├── janela.py       # interface gráfica (tkinter/ttk)
 ├── player.py       # arquivo principal, une thread + janela
 └── README.md
 ```
@@ -51,5 +54,5 @@ music-player/
 
 - Python 3
 - pygame (`pygame.mixer`)
-- tkinter (interface gráfica)
+- tkinter / ttk (interface gráfica)
 - threading (checagem automática de fim de música)

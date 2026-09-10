@@ -1,6 +1,7 @@
 import pygame
 import os
 import time
+import janela
 
 
 indice_atual = 0
@@ -16,9 +17,11 @@ for mp3 in os.listdir('playlist'):
 
 def play():
     global tocando_algo
+    
     pygame.mixer.music.load(playlist[indice_atual])
     pygame.mixer.music.play()
     tocando_algo = True
+    janela.label_musica_atual.config(text = f'Tocando {playlist[indice_atual]}')
     print(f'Radio ligado')
 def stop():
     global tocando_algo
@@ -51,4 +54,7 @@ def verificar_fim_da_musica():
         if pygame.mixer.music.get_busy() == False and tocando_algo:
             if not  pausado:
              proxima_musica()
+def fechar_programa():
+    stop()
+    janela.janela_principal.destroy()
 
